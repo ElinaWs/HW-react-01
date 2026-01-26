@@ -1,24 +1,27 @@
+import { FilmList } from "../FilmList/FilmList"
+import { FilmInput } from "../FilmInput/FilmInput"
 import { useState } from "react"
 
 export const AddFilm = () => {
     const [films, setFilms] = useState([])
-    const [value, setValue] = useState('')
 
-    const onAddFilm = () => {
-        const newFilm = { id: Date.now(), title: value }
-        setFilms([...films, newFilm])
-        setValue('')
+    const onAddFilm = (newFilmString) => {
+        const newFilm = {
+            id: Date.now(),
+            title: newFilmString
+        }
+        setFilms([...films, newFilm]) 
+    }
+
+    const onDeleteFilm = (id) => {
+        setFilms(films.filter(film => film.id !== id))
     }
 
     return (
         <div className="container">
             <h1>My top films:</h1>
-            <input value={value} onChange={(e) => setValue(e.target.value)} />
-            <button onClick={onAddFilm}>Add</button>
-            
-            <div>
-                {films.map(f => <p key={f.id}>{f.title}</p>)}
-            </div>
+            <FilmInput onAddFilm={onAddFilm} />
+            <FilmList films={films} onDeleteFilm={onDeleteFilm} />
         </div>
     )
 }
