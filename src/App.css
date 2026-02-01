@@ -93,3 +93,43 @@ button:hover {
   border-radius: 8px;
   border-left: 5px solid #f79ab9;
 }
+
+.film-item {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.film-item h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.film-item button {
+  padding: 5px 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.film-item button:hover {
+  opacity: 0.8;
+}
+
+.film-item .watched-btn {
+  background-color: #87ceeb; 
+  color: white;
+}
+
+.film-item .delete-btn {
+  background-color: #ff4d4f; 
+  color: white;
+}
+
+
