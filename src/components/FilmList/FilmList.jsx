@@ -1,22 +1,16 @@
-export const FilmItem = (props) => {
-    return (
-        <div className="film-item">
-            <p>{props.film.title}</p>
-            <button onClick={() => props.onDeleteFilm(props.film.id)}>Delete</button>
-        </div>
-    )
-}
+import FilmItem from "../FilmItem/FilmItem";
 
-export const FilmList = (props) => {
-    return (
-        <div>  
-            {props.films.map(film => (
-                <FilmItem 
-                    film={film} 
-                    key={film.id} 
-                    onDeleteFilm={props.onDeleteFilm} 
-                />
-            ))}
-        </div>
-    )
+export default function FilmList({ films, toggleWatched, onDeleteFilm }) {
+  return (
+    <div>
+      {films.map(film => (
+        <FilmItem
+          key={film.id}
+          film={film}
+          toggleWatched={toggleWatched}
+          onDeleteFilm={onDeleteFilm}
+        />
+      ))}
+    </div>
+  );
 }
