@@ -1,6 +1,6 @@
-import FilmItem from "../FilmItem/FilmItem";
+import { FilmItem } from "../FilmItem/FilmItem"
 
-export default function FilmList({ films, toggleWatched, onDeleteFilm }) {
+export default function FilmList({ films, toggleWatched, onDeleteFilm, onSetReaction }) {
   return (
     <div>
       {films.map(film => (
@@ -9,6 +9,7 @@ export default function FilmList({ films, toggleWatched, onDeleteFilm }) {
           film={film}
           toggleWatched={toggleWatched}
           onDeleteFilm={onDeleteFilm}
+          onSetReaction={onSetReaction}
         />
       ))}
     </div>

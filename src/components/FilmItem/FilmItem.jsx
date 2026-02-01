@@ -1,11 +1,25 @@
-export default function FilmItem({ film, toggleWatched, onDeleteFilm }) {
-  return (
-    <div style={{ border: "1px solid gray", padding: 10, marginBottom: 10 }}>
-      <h3>{film.title}</h3>
-      <button onClick={() => toggleWatched(film.id)}>
-        {film.watched ? "Watched" : "Add as watched"}
-      </button>
-      <button onClick={() => onDeleteFilm(film.id)}>Delete</button>
+import NullFilm from "../NullFilm/NullFilm"
+
+export const FilmItem = (props) => {
+    return (
+    <div className="film-item">
+        <p>{props.film.title}</p>
+
+        <button onClick={() => props.toggleWatched(props.film.id)}>
+            {props.film.watched ? "Watched" : "Add as watched"}
+        </button>
+
+        <button onClick={() => props.onDeleteFilm(props.film.id)}>
+            Delete
+        </button>
+
+        {props.film.watched && (
+            <NullFilm
+            reaction={props.film.reaction}
+            onLike={() => props.setLike(props.film.id)}
+            onDislike={() => props.setDislike(props.film.id)}
+            />
+        )}
     </div>
-  );
+  )
 }
